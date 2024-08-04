@@ -1,0 +1,14 @@
+.selectDiv {
+  border: 1px solid rgba(201, 201, 201, 0.8);
+  border-radius: 4px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.selectNum {
+  border: none;
+  overflow: hidden;
+  outline: none;
+}
