@@ -1,7 +1,7 @@
 import {AppContextProvider} from "../../context/ContextProvider";
 import styles from "./styles.module.css";
 import CalcNav from "../CalcNav/CalcNav";
-import Form from "../Form/Form";
+import Form from "../RenderPage/RenderPage";
 
 
 
