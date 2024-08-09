@@ -1,10 +1,11 @@
 import styles from "./styles.module.css";
 import {useAppContext} from  "../../context/ContextProvider";
-import INPUTnumber from "../microElements/InputNumber";
+import INPUTnumber from "../microElements/InputNumber"
 import { useEffect, useState } from "react";
 
 
-export default function Page(){ // "Расчет автокредита"
+
+export default function Page(){ // "Расчет потребительского кредита"
     const  {calcArr} =  useAppContext(); // Массив калькуляторов
     let {typeCalc, toggleTypeCalc} = useAppContext(); // Выбранный калькулятор
     let {initialMoney, toggleInitialMoney} = useAppContext();  // Сумма денег запрашиваемая либо инвестируемая
@@ -17,7 +18,7 @@ export default function Page(){ // "Расчет автокредита"
     let [creditPayment, setCreditPayment] = useState(0); // Кредитный платеж
 
 
-    togglePercent(3.5);
+    togglePercent(14.5);
         useEffect(()=>{
             setMonthlyRate(percent/1200)
         },[percent]);
@@ -36,7 +37,7 @@ export default function Page(){ // "Расчет автокредита"
     return (
         <div className={styles.inputForm}>
                 <div className={styles.inputForm__title}><h2>{calcArr[typeCalc].name}</h2></div>
-                <INPUTnumber lable={"Стоимость автомобиля"}  state = {initialMoney} setState={toggleInitialMoney} span={"руб"}/>
+                <INPUTnumber lable={"Стоимость жилья"}  state = {initialMoney} setState={toggleInitialMoney} span={"руб"}/>
                 <INPUTnumber lable={"Первоначальный взнос"}  state = {startMoney} setState={toggleStartMoney} span={"руб"}/>
                 <INPUTnumber lable={"Стоимость страховки в год"}  state = {insurance} setState={toggleInsurance} span={"руб"}/>
                 <div>Сумма кредита {(initialMoney-startMoney+insurance*time >0? initialMoney-startMoney+insurance*time: 0)}</div>

@@ -22,6 +22,10 @@ const calcArr =
         name: "Пенсионные накопления",
         
     },
+    {   id:4, 
+        name: "Потребительский кредит",
+        
+    },
 ];
 
 
@@ -35,13 +39,16 @@ const calcArr =
     const [typeCalc, setTypeCalc] = useState(props.typeCalc || 0); // Тип калькулятора 0-3
     const toggleTypeCalc = useCallback((num) => {setTypeCalc(num)},[]);
 
-    const [initialMoney, setInitialMoney] = useState(props.initialMoney || 0); // Сумма денег запрашиваемая либо инвестируемая
+    const [initialMoney, setInitialMoney] = useState(props.initialMoney || 2000000); // Сумма денег запрашиваемая для кредита
     const toggleInitialMoney = useCallback((num) => {setInitialMoney(num)},[]);
 
-    const [startMoney, setStartMoney] = useState(props.startMoney || 0) // Старторвый капиталл или первоначальный взнос
+    const [monthlyPayment, setMonthlyPayment] =useState(props.monthlyPayment || 1000); // Сумма ежемесячных инвестиций
+    const toggleMonthlyPayment = useCallback((num) => {setMonthlyPayment(num)}, [])   
+
+    const [startMoney, setStartMoney] = useState(props.startMoney || 500000) // Старторвый капиталл или первоначальный взнос
     const toggleStartMoney = useCallback((num) => {setStartMoney(num)}, [])
 
-    const [time, setTime] = useState(props.time || 12); // Срок инвестирования либо кредита в месяцах
+    const [time, setTime] = useState(props.time || 20); // Срок инвестирования либо кредита лет
     const toggleTime = useCallback((num) => {setTime(num)},[]);
 
     const [percent, setPercent] = useState(props.percent || 9); // Процентная ставка
@@ -59,5 +66,6 @@ const calcArr =
         percent, togglePercent, // Процентная ставка
         startMoney, toggleStartMoney,  // Старторвый капиталл или первоначальный взнос
         insurance, toggleInsurance, // Страхование
-};
+        monthlyPayment, toggleMonthlyPayment // Ежемесячные инвесимции
+}
 }
